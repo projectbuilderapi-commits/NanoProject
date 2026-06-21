@@ -14,7 +14,10 @@ const app = express();
 
 app.use(helmet());
 
-app.use(cors("http://localhost:5173/"));
+app.use(cors({
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200 
+}));
 app.use(express.json());
 
 app.use("/api/projects", projectRoutes);
