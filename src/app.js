@@ -9,6 +9,7 @@ import dashboardRoutes from "./routes/dashboardRoutes.js";
 import errorMiddleware from "./middleware/errorMiddleware.js";
 import couponRoutes from "./routes/couponRoutes.js";
 import notFoundMiddleware from "./middleware/notFoundMiddleware.js";
+import contactRoutes from "./routes/contactRouter.js";
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 
 app.use("/api/coupons", couponRoutes);
+app.use("/api/contacts", contactRoutes);
 
 app.use(notFoundMiddleware);
 
