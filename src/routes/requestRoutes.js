@@ -6,6 +6,7 @@ import {
   createRequest,
   updateRequestStatus,
   getRecentRequests,
+  getDeleteRequest,
 } from "../controllers/requestController.js";
 import authMiddleware from "../middleware/authMiddleware.js";
 import validateMiddleware from "../middleware/validateMiddleware.js";
@@ -23,5 +24,7 @@ router.get("/:id", authMiddleware, getRequestById);
 router.post("/", requestLimiter, createRequestValidation, validateMiddleware, createRequest);
 
 router.patch("/:id/status", authMiddleware, updateRequestStatus);
+
+router.delete("/:id", authMiddleware, getDeleteRequest);
 
 export default router;

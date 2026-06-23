@@ -126,3 +126,25 @@ export const getRecentRequests = async (req, res) => {
         });
     }
 };
+
+export const getDeleteRequest = async (req, res) => {
+    try {
+        const requestId = req.params.id;
+        const request = await Request.findByIdAndDelete(requestId);
+        if(!request) {
+            return res.status(404).json({
+                status : false,
+                message : "Request Not Found"
+            });
+        }
+        res.status(200).json({
+            success: true,
+            message: "Request Deleted Successfully"
+        });
+    } catch (error) {
+        res.status(500).json({ 
+            status : false,
+            error : error.message
+        });
+    }
+}
