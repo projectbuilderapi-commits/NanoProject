@@ -10,6 +10,7 @@ import errorMiddleware from "./middleware/errorMiddleware.js";
 import couponRoutes from "./routes/couponRoutes.js";
 import notFoundMiddleware from "./middleware/notFoundMiddleware.js";
 import contactRoutes from "./routes/contactRouter.js";
+import designRoutes from "./routes/designRoutes.js";
 
 const app = express();
 
@@ -34,6 +35,11 @@ app.use("/api/dashboard", dashboardRoutes);
 
 app.use("/api/coupons", couponRoutes);
 app.use("/api/contacts", contactRoutes);
+
+app.use(
+  "/api/designs",
+  designRoutes
+);
 
 app.use(notFoundMiddleware);
 
