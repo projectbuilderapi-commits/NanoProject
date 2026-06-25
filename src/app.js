@@ -20,7 +20,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://projectbuilderapi.netlify.app/"
+      "https://projectbuilderapi.netlify.app"
     ],
     credentials: true,
   })
